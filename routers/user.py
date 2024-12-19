@@ -13,6 +13,15 @@ from sqlalchemy import insert, select, update, delete
 # Функция создания slug-строки
 from slugify import slugify
 
+from fastapi import APIRouter, Depends, status, HTTPException
+from sqlalchemy.orm import Session
+from app.backend.db_depends import get_db
+from typing import Annotated
+from app.models import User
+from app.schemas import CreateUser, UpdateUser
+from sqlalchemy import insert, select, update, delete
+from slugify import slugify
+
 router = APIRouter(prefix='/user', tags=['user'])
 
 
